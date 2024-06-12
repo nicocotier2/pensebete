@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#add-rectangle-btn {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#rectangle-container {
+    margin: 20px;
+}
+
+.rectangle {
+    width: 300px;
+    padding: 10px;
+    background-color: lightblue;
+    margin-top: 10px;
+    position: relative;
+}
+
+.add-line-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.line input[type="checkbox"] {
+    margin-right: 10px;
+}
