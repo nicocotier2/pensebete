@@ -21,7 +21,7 @@ $pdo = connectToDbAndGetPdo();
 if (!empty($_POST)) {
 
     if (isset($_POST['email']) && isset($_POST['passe'])) {
-        $pdoStatement = $pdo->prepare('SELECT id,nom,mdp FROM user WHERE mail = :email AND mdp = :mdp');
+        $pdoStatement = $pdo->prepare('SELECT id,pseudo,mdp FROM user WHERE mail = :email AND mdp = :mdp');
         $pdoStatement->execute([
             ':email' => $_POST['email'],
             ':mdp'   => hash('sha256', $_POST['passe']),
@@ -35,7 +35,7 @@ if (!empty($_POST)) {
 }
 
 if (isset($_SESSION['userId'])) {
-    $pdoStatement = $pdo->prepare('SELECT nom FROM user WHERE id = :id');
+    $pdoStatement = $pdo->prepare('SELECT pseudo FROM user WHERE id = :id');
     $pdoStatement->execute([
         ':id' => $_SESSION['userId']
     ]);
@@ -43,6 +43,8 @@ if (isset($_SESSION['userId'])) {
 
     if ($user) {
         $message_connexion = 'Connecté en tant que ' . $user->nom;
+        header('Location: pageAccueil.php');
+        exit;
     } 
 }
 ?>

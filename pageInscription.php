@@ -42,7 +42,7 @@ $pdo = connectToDbAndGetPdo();
             if (strlen($_POST['nom']) < 4) {
                 $error_message_pseudo = 'Le pseudo doit comporter au moins 4 caractères';
             } else {
-                $pdoStatement = $pdo->prepare('SELECT nom FROM `user` WHERE nom = :nom');
+                $pdoStatement = $pdo->prepare('SELECT pseudo FROM `user` WHERE pseudo = :nom');
                 $pdoStatement->execute([':nom' => $_POST['nom']]);
                 $existing_username = $pdoStatement->fetchColumn();
                 if ($existing_username) {
@@ -72,11 +72,10 @@ $pdo = connectToDbAndGetPdo();
             empty($error_message_passe) &&
             empty($error_message_passeconfirm)) {
             
-            $pdoStatement = $pdo->prepare('INSERT INTO user (nom, mdp, score, mail) VALUES (:nom, :mdp, :score, :mail)');
+            $pdoStatement = $pdo->prepare('INSERT INTO user (pseudo, mdp, mail) VALUES (:nom, :mdp, :mail)');
             $success = $pdoStatement->execute([
                 ':nom' => $_POST['nom'],
                 ':mdp' => hash('sha256', $_POST['mdp']), // Hash du mot de passe (à adapter selon vos besoins)
-                ':score' => 0, // Valeur par défaut pour le score, à adapter si nécessaire
                 ':mail' => $_POST['mail']
             ]);
 

@@ -1,6 +1,6 @@
 <footer class="footer">
   <div class="footer__addr">
-    <h1 class="footer__logo">Shogi-game</h1>
+    <h1 class="footer__logo">PenseBete</h1>
         
     <h2>Contact</h2>
     

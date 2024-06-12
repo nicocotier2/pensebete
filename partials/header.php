@@ -15,7 +15,8 @@ $pdo = connectToDbAndGetPdo();
             ]);
             $utilisateur = $pdoStatement->fetch(); ?>
             <div class="utilisateur">
-                <?php echo "Bonjour" ?>&nbsp;<span id="pseudo"><?php echo $utilisateur->nom ?></span>&nbsp;<?php echo " !" ?>
+                <?php echo "Bonjour" ?>
+                <span id="pseudo"><?php echo $utilisateur->pseudo ?></span>&nbsp;<?php echo " !" ?>
             </div>
         <?php
         } else {
@@ -27,7 +28,7 @@ $pdo = connectToDbAndGetPdo();
         <?php if (isset($_SESSION['userId'])) : ?>
             <!-- Liens disponibles lorsque l'utilisateur est connecté -->
             <a href="pageAccueil.php">Accueil</a>
-            <a href="pageListe.php">Jeu</a>
+            <a href="pageListe.php">Liste</a>
             <a href="pageProfil.php">Profils</a>
             <a href="pageDeconnexion.php">Bye !</a>
         <?php else : ?>
