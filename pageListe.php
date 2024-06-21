@@ -22,7 +22,8 @@
             <div class="titre"> 
                 <h1><?php echo "bienvenue sur vos projets"?> </h1>
             </div>
-            <button id="add-rectangle-btn">Ajouter un pense bête    </button>
+            <button id="add-rectangle-btn">Ajouter un pense bête</button>
+            <button id="rebuild-rectangles-btn">mettre à jour les listes</button>
             <div id="rectangle-container"></div>
             <script src="script/main.js"></script>
         </div>
